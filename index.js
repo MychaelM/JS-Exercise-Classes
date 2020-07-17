@@ -145,7 +145,19 @@ class Instructor extends Lambdasian {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  changeGrade(str, student) {
+    if (str === "add") {
+      return student.grade += Math.floor(Math.random() * 6);
+    //  console.log(student.grade)
+    } else if (str === "subtract") {
+     return student.grade -= Math.floor(Math.random() * 6);
+    } else {
+      console.log("Please input a valid operator: 'add' or 'subtract'");
+    }
+  }
 }
+
+const blankInstructor = new Instructor({});
 
 /*
   TASK 5
@@ -162,12 +174,16 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
+
+const studentObj = {name: "Mychael", age: 29, location: "Nunya", previousBackground: "Finance", className: "WebPT20", favSubjects: "Programming", grade: 71}
+
 class Student extends Lambdasian {
   constructor(obj) {
     super(obj);
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
+    this.grade = 71;
   }
   listSubjects() {
     return `Loving ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}!`;
