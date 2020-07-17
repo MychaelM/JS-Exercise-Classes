@@ -177,6 +177,7 @@ const blankInstructor = new Instructor({});
 
 const studentObj = {name: "Mychael", age: 29, location: "Nunya", previousBackground: "Finance", className: "WebPT20", favSubjects: "Programming", grade: 71}
 
+
 class Student extends Lambdasian {
   constructor(obj) {
     super(obj);
@@ -194,8 +195,16 @@ class Student extends Lambdasian {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+  graduate() {
+    if (this.grade > 70) {
+      return `Congratulations ${this.name}, you are now a Lambda Grad!`;
+    } else {
+      return `Sorry ${this.name} you need to study more before you can graduate. You current grade is: ${this.grade}`;
+    }
+  }
 }
 
+const me = new Student(studentObj);
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
